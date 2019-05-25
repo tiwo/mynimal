@@ -3,8 +3,7 @@
 
 static PyObject *
 say_hello(PyObject * self, PyObject * args) {
-	printf("Hello world\n");
-	Py_RETURN_NONE;
+	return Py_BuildValue("s", "Hello world");
 }
 
 static PyMethodDef
@@ -13,7 +12,7 @@ _mynimal_methods[] = {
 		"say_hello",
 		say_hello,
 		METH_NOARGS,
-		"just print \"hello world\" from inside the C extension"
+		"just return \"hello world\" from inside the C extension"
 	},
 	{NULL, NULL, 0, NULL}
 };
